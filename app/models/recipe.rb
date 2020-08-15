@@ -8,6 +8,17 @@ class Recipe
         @@all << self
     end
 
+    def menu_items
+        MenuItem.all.select {|x| x.recipe == self}
+    end
+
+    def restaurtants
+        MenuItem.all.select do |x|
+            if x.recipe == self
+                x.restaurant
+            end
+        end
+    end
 
     def self.all 
         @@all
