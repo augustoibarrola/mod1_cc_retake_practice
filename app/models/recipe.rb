@@ -1,3 +1,4 @@
+require 'pry'
 class Recipe
     attr_accessor :description
     attr_reader :name
@@ -20,7 +21,41 @@ class Recipe
         end
     end
 
+    def average_price
+        self.menu_items.sum {|x| x.price} / self.menu_items.count
+    end
+
+    def highest_price
+        highest = self.menu_items.collect do |array|
+            array.price
+        end.max
+        self.menu_items.select do |x|
+            if x.price == highest
+                x
+            end
+        end
+    end
+
+    def cheapest_restaurant
+        lowest = self.restaurtants.collect do |array|
+            array.price
+        end.min 
+        self.restaurtants.select do |x|
+            if x.price == lowest
+                x
+            end
+        end
+    end
+
     def self.all 
         @@all
+    end
+
+    def self.inactive
+        self.all.select do |x|
+            if x.restaurtants == []
+                x
+            end
+        end
     end
 end

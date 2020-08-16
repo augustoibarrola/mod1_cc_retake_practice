@@ -21,7 +21,18 @@ class RestaurantOwner
         items
     end
 
+    def sell_restaurant(restaurant, buyer)
+        if self.restaurants.include? restaurant
+            restaurant.owner = buyer
+        end
+    end
+
     def self.all
         @@all
     end
+
+    def self.average_age
+        @@all.sum {|x| x.age} / @@all.count
+    end
+
 end
