@@ -32,6 +32,8 @@ bolgogi = MenuItem.new(ogden, beef, 17.50)
 currychicken = MenuItem.new(babybrasa, chicken, 14.50)
 icecreammadness = MenuItem.new(arturos, icecream, 23.00)
 
+# CARYN SAYS: yay testing! good number of instances to work with 
+
 # ===== WARNING! DO NOT EDIT BELOW THIS LINE ===== #
 binding.pry
 0
